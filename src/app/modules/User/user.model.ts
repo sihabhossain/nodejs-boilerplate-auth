@@ -35,10 +35,7 @@ const userSchema = new Schema<TUser, IUserModel>(
       enum: Object.keys(USER_STATUS),
       default: USER_STATUS.ACTIVE,
     },
-    bio: {
-      type: String,
-      required: true,
-    },
+
     passwordChangedAt: {
       type: Date,
     },
@@ -49,40 +46,6 @@ const userSchema = new Schema<TUser, IUserModel>(
     profilePhoto: {
       type: String,
     },
-    isPremium: {
-      // Field for premium status
-      type: Boolean,
-      default: false, // Default to false
-    },
-    isBlocked: {
-      // Field for block status
-      type: Boolean,
-      default: false, // Default to false
-    },
-    followersCount: {
-      // Field for followers count
-      type: Number,
-      default: 0, // Default to 0
-    },
-    followingCount: {
-      // Field for following count
-      type: Number,
-      default: 0, // Default to 0
-    },
-    followers: [
-      {
-        // Field to store user IDs of followers
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-      },
-    ],
-    following: [
-      {
-        // Field to store user IDs of the users this person is following
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-      },
-    ],
   },
   {
     timestamps: true,
